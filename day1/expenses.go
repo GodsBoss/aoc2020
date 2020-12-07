@@ -18,17 +18,19 @@ func run() error {
 		return err
 	}
 
-	for i := range lines {
-		for j := range lines {
-			if i == j {
-				continue
-			}
-			if lines[i]+lines[j] == 2020 {
-				fmt.Printf("%d (line %d) * %d line %d = %d\n", lines[i], i+1, lines[j], j+1, lines[i]*lines[j])
-				return nil
-			}
-		}
+	firstPartSolution, err := findCombination(lines, 2020, 2)
+	if err != nil {
+		return err
 	}
+	fmt.Printf("Solution the first part is %d.\n", multiply(firstPartSolution))
 
-	return fmt.Errorf("no matching combination found")
+	return nil
+}
+
+func multiply(factors []int) int {
+	result := 1
+	for i := range factors {
+		result *= factors[i]
+	}
+	return result
 }
