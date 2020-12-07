@@ -24,6 +24,12 @@ func run() error {
 	}
 	fmt.Printf("Solution the first part is %d.\n", multiply(firstPartSolution))
 
+	secondPartSolution, err := findCombination(lines, 2020, 3)
+	if err != nil {
+		return err
+	}
+	fmt.Printf("Solution to the second part is %d.\n", multiply(secondPartSolution))
+
 	return nil
 }
 
