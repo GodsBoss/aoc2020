@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"regexp"
 	"strconv"
+	"strings"
 )
 
 type passwordRecord struct {
@@ -46,4 +47,13 @@ type policy struct {
 	min int
 	max int
 	ch  string
+}
+
+func (p policy) matches(pw string) bool {
+	cnt := strings.Count(pw, p.ch)
+	return (p.min <= cnt) && (cnt <= p.max)
+}
+
+func (rec *passwordRecord) isValid() bool {
+	return rec.policy.matches(rec.password)
 }
