@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/GodsBoss/aoc2020/days/day1"
+	"github.com/GodsBoss/aoc2020/days/day2"
 	"github.com/GodsBoss/aoc2020/pkg/cli"
 
 	"fmt"
@@ -18,6 +19,7 @@ func main() {
 func run(args []string) error {
 	days := cli.Days{
 		day1.NewDay("days/day1/input.txt"),
+		day2.NewDay("days/day2/input.txt"),
 	}
 	return days.Run(args)
 }
