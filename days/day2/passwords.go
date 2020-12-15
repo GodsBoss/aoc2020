@@ -53,5 +53,12 @@ func (d *sday) Part1() error {
 }
 
 func (d *sday) Part2() error {
+	validPasswordCount := 0
+	for _, pwRec := range d.pwRecords {
+		if pwRec.isReallyValid() {
+			validPasswordCount++
+		}
+	}
+	fmt.Printf("There are %d valid (really) passwords.\n", validPasswordCount)
 	return nil
 }
