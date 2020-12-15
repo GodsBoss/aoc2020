@@ -27,7 +27,7 @@ func (days Days) Run(args []string) error {
 		return nil
 	}
 	if len(args) == 1 || len(args) == 2 {
-		dayIndex, err := days.getDayIndex(args[1])
+		dayIndex, err := days.getDayIndex(args[0])
 		if err != nil {
 			return err
 		}
