@@ -54,6 +54,21 @@ func (p policy) matches(pw string) bool {
 	return (p.min <= cnt) && (cnt <= p.max)
 }
 
+func (p policy) altermatches(pw string) bool {
+	matchingPositions := 0
+	positions := []int{p.min - 1, p.max - 1}
+	for _, pos := range positions {
+		if pos < len(pw) && string(pw[pos]) == p.ch {
+			matchingPositions++
+		}
+	}
+	return matchingPositions == 1
+}
+
 func (rec *passwordRecord) isValid() bool {
 	return rec.policy.matches(rec.password)
+}
+
+func (rec *passwordRecord) isReallyValid() bool {
+	return rec.policy.altermatches(rec.password)
 }
