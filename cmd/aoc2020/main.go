@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/GodsBoss/aoc2020/day1"
 	"github.com/GodsBoss/aoc2020/pkg/cli"
 
 	"fmt"
@@ -15,6 +16,8 @@ func main() {
 }
 
 func run(args []string) error {
-	days := cli.Days{}
+	days := cli.Days{
+		day1.NewDay("day1/input.txt"),
+	}
 	return days.Run(args)
 }
