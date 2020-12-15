@@ -1,6 +1,8 @@
 package main
 
 import (
+	"github.com/GodsBoss/aoc2020/pkg/cli"
+
 	"fmt"
 	"os"
 )
@@ -13,5 +15,6 @@ func main() {
 }
 
 func run(args []string) error {
-	return nil
+	days := cli.Days{}
+	return days.Run(args)
 }
